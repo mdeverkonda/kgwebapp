@@ -15,15 +15,34 @@
 								<div class="row">
                                     <div>
 										<ul>
-											<li><h4 style="font-style:italic;font-weight:bold; color: white;">Game is in Progress. </h4></a></li>
-											<li><input type="button" value="New Game"></li>
-											<li></br></li>
-											<li></br></li>
-											<li style="font-style:initial; color: white;">Enter your word : &nbsp;&nbsp;&nbsp; <input type="text" id="playerWord" name="playerWord" style="border-radius: 15px; background: grey; padding: 20px;  width: 50px;  height: 30px;"></li>
-											<li><input type="submit" value="Submit"> <p style="font-style:normal; color:white;">'Result for word' : '1C 1B'</p></li>
+										{{#if_eq gameInProgress 'true'}}
+											<li><h2 style="font-style:normal;font-weight:bold; color: white;">Please join current game. </h2></a></li>
+								    	{{/if_eq}}
+    
+										{{#if_eq newGameAllowed 'true'}}
+										<form action="/cowsandbulls_game_new" method="POST">
+											<li><input type="submit" value="New Game"></li>
+										</form>
+								    	{{/if_eq}}
 										</ul>
 									</div>
+
 								</div>
+
+								<div class="row">
+                                    <div>
+										<ul>
+
+										<form action="/cowsandbulls_game" method="POST">
+											<li style="font-style:initial; color: white;">Enter your word : &nbsp;&nbsp;&nbsp; <input type="text" id="playerWord" name="playerWord" style="border-radius: 15px; background: grey; padding: 20px;  width: 50px;  height: 30px;"></li>
+											<li><input type="submit" value="Submit"> <p style="font-style:normal; color:white;">{{ wordAnswer }}</p></li>
+										</form>
+										</ul>
+									</div>
+
+								</div>
+
+
 								<div class="row" style="font-style:initial; color: white;">
 									<div class="3u">
 										<ul class="link-list last-child">
