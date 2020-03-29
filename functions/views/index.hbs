@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<!--
+	Halcyonic by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+
+	{{> header }}	
+
+	<body>
+
+		{{> navbar }}
+
+
+		{{#if_eq name 'index'}}
+      		{{> index-features }}
+			{{> index-content }}
+    	{{/if_eq}}
+    
+		{{#if_eq name 'cowsandbulls'}}
+      		{{> cowsandbulls-content }}
+    	{{/if_eq}}
+    
+		{{#if_eq name 'bookcricket'}}
+      		{{> bookcricket-content }}
+    	{{/if_eq}}
+    
+		{{> footer }}	
+
+	</body>
+</html>

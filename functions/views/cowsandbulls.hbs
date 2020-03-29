@@ -1,0 +1,132 @@
+<!DOCTYPE HTML>
+<!--
+	Halcyonic by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+
+	{{> header }}	
+
+	<body class="subpage">
+
+	<!-- Header -->
+		{{> navbar }}
+		<!-- Content -->
+		<div id="content-wrapper">
+			<div id="content">
+				<div class="container">
+					<div class="row">
+						<div class="9u" style="background-color: green;">
+
+							<!-- Main Content -->
+							<section style="background-color: green;">
+								<header style="color: white;">
+									<h2 style="color: white;">Lets play - 'Cows and Bulls' game</h2>
+									<h3 style="color: white;">Guess the word</h3>
+								</header>
+								<div>
+									<div class="row">
+										<div >
+											<ul>
+												<li><button>New Game</button><br><br></li>
+												<li style="font-style:initial; color: white;">Enter you Word: 	&nbsp;	&nbsp;
+													<input type="text" id="playerWord" name="playerWord" style="width: 50px; height: 25px"> 	&nbsp;	&nbsp;
+													<button>Submit</button>
+													<br><br></li>
+												<li style="font-style:initial; color: white;">Result for 'WORD': <label>"1C, 2B"</label></li>
+											</ul>
+										</div>
+									</div>
+									<div class="row" style="font-style:initial; color: white;">
+										<div class="3u">
+											<ul class="link-list last-child">
+												<li>'word' : '1C 1B'</a></li>
+												<li>'word' : '1C 1B'</a></li>
+												<li>'word' : '1C 1B'</a></li>
+												<li>'word' : '1C 1B'</a></li>
+											</ul>
+										</div>
+										<div class="3u">
+											<ul class="link-list last-child">
+												<li>'word' : '1C 1B'</a></li>
+												<li>'word' : '1C 1B'</a></li>
+												<li>'word' : '1C 1B'</a></li>
+												<li>'word' : '1C 1B'</a></li>
+											</ul>
+										</div>
+										<div class="3u">
+											<ul class="link-list last-child">
+												<li>'word' : '1C 1B'</a></li>
+												<li>'word' : '1C 1B'</a></li>
+												<li>'word' : '1C 1B'</a></li>
+												<li>'word' : '1C 1B'</a></li>
+											</ul>
+										</div>
+										<div class="3u">
+											<ul class="link-list last-child">
+												<li>'word' : '1C 1B'</a></li>
+												<li>'word' : '1C 1B'</a></li>
+												<li>'word' : '1C 1B'</a></li>
+												<li>'word' : '1C 1B'</a></li>
+											</ul>
+										</div>
+
+									</div>
+									<br>
+									<br>
+									<br>
+									<div class="row">
+										<div >
+											<ul>
+												<li style="font-style:initial; color: white;">
+													<ul class="link-list" > <p style="text-decoration:underline;font-weight:bold;">How we played last few games: </p>
+														<li>'Word1' : Attempts to solve it</li>
+														<li>'Word1' : Attempts to solve it</li>
+														<li>'Word1' : Attempts to solve it</li>
+														<li>'Word1' : Attempts to solve it</li>
+													</ul>
+												</li>
+											</ul>
+										</div>
+									</div>
+
+								</div>
+
+							</section>
+
+						</div>
+						<div class="3u">
+
+							<!-- Sidebar -->
+							<section>
+								<header>
+									<h2>How it Works</h2>
+								</header>
+								<p style="font-style:initial;font-size: small;">
+									At the start of the game - CPU will have a non repeating four letter word ready.
+									Player/s needs to guess the word by providing words.
+									For every word you provide - Game will return number of Cows and Bulls</br>
+									If letter matches the position - its a Bull</br>
+									If letter exists but in a different position - its a cow</br>
+								</p>
+								<p style="font-weight:bold;font-style:initial;font-size: small;">
+									Ex:
+									For CPU's word is 'four' </br>
+									if Player's word is 'life' - result will be 1C </br>
+									if Player's word is 'sour' - result will be 3B</b>
+
+								</p>
+							</section>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		{{> footer }}	
+
+</body>
+
+</html>
