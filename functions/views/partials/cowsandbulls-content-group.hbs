@@ -1,0 +1,71 @@
+	<!-- Content -->
+	<div id="content-wrapper">
+		<div id="content">
+			<div class="container">
+				<div class="row">
+					<div class="9u" style="background-color: green;">
+
+						<!-- Main Content -->
+						<section style="background-color: green;">
+							<header style="color: white;">
+								<h2 style="color: white;">Lets play - 'Cows and Bulls' game</h2>
+								<h3 style="color: white;">We can play as a group</h3>
+							</header>
+							<div>
+								<div class="row">
+									<div>
+										<h4 style="font-style:italic;font-weight:bold; color: white;">Check current games if your group is already playing.. if not start new group</h4>
+									</div>
+									
+								</div>
+								<div class="row">
+									<div class="6u">
+										<p style="font-style:initial; color: white;">Enter your Name (Nickname or FirstName) :</p>
+									</div>
+									<div class="6u">
+										<input type="text" id="playerName" name="playerName" style="font-style:initial; width: 150px; height: 25px">
+									</div>
+								</div>
+								<div class="row">
+									<div class="6u">
+										<p style="font-style:initial; color: white;">Enter your Group Name :</p>
+									</div>
+									<div class="6u">
+										<input type="text" id="groupName" name="groupName" style="font-style:initial; width: 150px; height: 25px">
+									</div>
+								</div>
+								<div class="row" >
+									<div class="6u" style="text-align: center;" >
+										<input type="submit" value="New Game">
+									</div>
+								</div>
+
+
+							</div>
+
+						</section>
+
+					</div>
+					<div class="3u">
+
+						<!-- Sidebar -->
+						<section>
+							<header>
+								<h2>Current Games in Progress</h2>
+							</header>
+							<p style="font-style:initial;font-size: small;">
+								Here we go..</br>
+							</p>
+							<ul>
+    							{{#each groups}}
+    							<li><a href="/cowsandbulls_game">{{groupName}}</a></li>
+    							{{/each}}
+							</ul>
+
+						</section>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+

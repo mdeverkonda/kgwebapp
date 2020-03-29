@@ -39,8 +39,22 @@ app.get('/', (request, response) => {
 app.get('/cowsandbulls', (request, response) => {
     response.set('Cache-Control', 'public, max-age=300, s-maxage=600')
 
+
     var pages = {
         'name'   : 'cowsandbulls',
+        'groups' : [{'groupName': "Group1"}, {'groupName': "Group2"}, {'groupName': "Group3"}]
+     };
+    
+    response.render('index', pages)
+});
+
+app.get('/cowsandbulls_game', (request, response) => {
+    response.set('Cache-Control', 'public, max-age=300, s-maxage=600')
+
+
+
+    var pages = {
+        'name'   : 'cowsandbulls_game',
      };
     
     response.render('index', pages)
