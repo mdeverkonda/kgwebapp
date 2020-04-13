@@ -76,6 +76,17 @@ body, input, textarea, select
 		text-shadow: -1px -1px 1px rgba(0,0,0,0.75);
 	}
 	
+	#content-wrapper
+	{
+		background: #f7f7f7 url('images/bg04.png');
+		padding: 5px;
+	}
+
+		.subpage #content-wrapper
+		{
+			padding-top: 44px;
+		}
+	
 	#footer-wrapper
 	{
 		padding: 40px 15px 15px 15px;
@@ -159,7 +170,7 @@ body, input, textarea, select
 
 		#content section
 		{
-			background: #353D40;
+			background: #fff;
 			box-shadow: inset 0px 0px 0px 1px rgba(128,128,128,0.2);
 			padding: 30px 15px 30px 15px;
 			margin: 0 0 5px 0;
@@ -238,7 +249,7 @@ body, input, textarea, select
 /* MobileUI */
 
 	#titleBar {
-		color: #353D40;
+		color: #fff;
 		background: url('images/bg04.jpg');
 		box-shadow: inset 0px -20px 70px 0px rgba(200,220,245,0.1), inset 0px -1px 0px 0px rgba(255,255,255,0.1), 0px 1px 7px 0px rgba(0,0,0,0.6);
 		text-shadow: -1px -1px 1px rgba(0,0,0,0.75);
