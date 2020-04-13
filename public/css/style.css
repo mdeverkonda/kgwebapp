@@ -14,7 +14,7 @@
 
 	body
 	{
-		background: #D4D9DD url('images/bg03.jpg');
+		background: #353D40 url('images/bg02.jpg');
 	}
 
 	body, input, textarea, select
@@ -79,7 +79,6 @@
 
 		#content .link-list li
 		{
-			border-bottom: solid 0px #e2e6e8;
 		}
 
 		#footer .link-list li
@@ -130,10 +129,6 @@
 				font-weight: 400;
 			}
 
-		#content .quote-list li
-		{
-			border-bottom: solid 1px #e2e6e8;
-		}
 
 		#footer .quote-list li
 		{

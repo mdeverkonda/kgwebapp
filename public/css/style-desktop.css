@@ -30,24 +30,12 @@
 		text-shadow: -1px -1px 1px rgba(0,0,0,0.75);
 	}
 
-	.subpage #header-wrapper
-	{
-		height: 155px;
-	}
-	
 	#features-wrapper
 	{
 		background: #353D40 url('images/bg02.jpg');
 		border-bottom: solid 1px #272e31;
 		padding: 45px 0 45px 0;
 		text-shadow: -1px -1px 1px rgba(0,0,0,0.75);
-	}
-	
-	#content-wrapper
-	{
-		background: #f7f7f7 url('images/bg04.png');
-		border-top: solid 1px #fff;
-		padding: 45px 0 45px 0;
 	}
 	
 	#footer-wrapper
@@ -156,7 +144,7 @@
 	
 		#content section
 		{
-			background: #fff;
+			background:#353D40 url('images/bg02.jpg');
 			padding: 40px 30px 45px 30px;
 			box-shadow: 2px 2px 2px 1px rgba(128,128,128,0.1);
 			margin: 0 0 10% 0;
