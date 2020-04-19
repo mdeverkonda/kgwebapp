@@ -8,19 +8,27 @@
 						<!-- Main Content -->
 						<section style="background-color: green;">
 							<header style="color: white;">
-								<h2 style="color: white;">Lets play - 'Cows and Bulls' game</h2>
-								<h3 style="color: white;">Guess the word</h3>
+								<div class="row">
+									<div class="6u">
+										<h2 style="color: white;">Hello {{currGroupGame.groupName}},  Lets play - 'Cows and Bulls' game</h2>
+									</div>
+									<div class="6u">
+										<a href="#" ><img src="images/cowsandbulls-fulltransparent.png" alt="" style="width:200px;height:100px;" ></a>
+									</div>
+								</div>
+
 							</header>
 							<div>
 								<div class="row">
                                     <div>
 										<ul>
 										{{#if_eq gameInProgress 'true'}}
-											<li><h2 style="font-style:normal;font-weight:bold; color: white;">Please join current game. </h2></a></li>
+											<li><h2 style="font-style:normal;font-weight:bold; color: white;">Game in Progress.. Lets dive right in. </h2></a></li>
 								    	{{/if_eq}}
     
 										{{#if_eq newGameAllowed 'true'}}
-										<form action="/cowsandbulls_game_new" method="POST">
+										<form action="/cowsandbulls_game" method="POST">
+											<input type="hidden" value={{groupName}}
 											<li><input type="submit" value="New Game"></li>
 										</form>
 								    	{{/if_eq}}
@@ -32,10 +40,11 @@
 								<div class="row">
                                     <div>
 										<ul>
-
+										<!-- Need to add ID to this url-->
 										<form action="/cowsandbulls_game" method="POST">
 											<li style="font-style:initial; color: white;">Enter your word : &nbsp;&nbsp;&nbsp; <input type="text" id="playerWord" name="playerWord" style="border-radius: 15px; background: grey; padding: 20px;  width: 50px;  height: 30px;"></li>
 											<li><input type="submit" value="Submit"> <p style="font-style:normal; color:white;">{{ wordAnswer }}</p></li>
+											<input type="hidden" value={{groupName}}
 										</form>
 										</ul>
 									</div>

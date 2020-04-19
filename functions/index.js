@@ -4,6 +4,9 @@ const engines = require('consolidate');
 
 var hbs = require('express-hbs');
 
+var GroupGame = require('./GroupGame.js')
+var PlayerWord = require('./PlayerWord.js')
+
 const app = express();
 
 // Use `.hbs` for extensions and find partials in `views/partials`.
@@ -110,6 +113,56 @@ app.post('/cowsandbulls_game', (request, response) => {
     response.render('index', pages)
 });
 
+
+//Start or Take to existing Game in Progress for this Group
+app.post('/grp_cowsandbulls_game', (request, response) => {
+
+    playerName = request.body.playerName
+    groupName = request.body.groupName
+
+    /*
+
+        Check if any game is in progress for this group.
+        If it is get the groupId
+        and join this user to that group
+
+    */
+
+    //console.log(playerName)
+    //console.log(groupName)
+
+    // let currGames = 
+
+    let currGroupGame = new GroupGame()
+    currGroupGame.groupName = groupName
+
+    let playerWord = new PlayerWord()
+    playerWord.playerName = playerName
+    
+    currGroupGame.playerWords.push(playerWord)
+
+    //Read this info from a valid place
+    isNewGameAllowed = "false"
+
+    //Read this info from a valid place
+    isGameInProgress = "true"
+    
+    words = getCurrentGameWords('word')
+    
+    
+    //TODO: 
+    //Read words into sets of 4
+
+    var pages = {
+        'name'   : 'cowsandbulls_game',
+        'newGameAllowed' : isNewGameAllowed,
+        'gameInProgress' : isGameInProgress,
+        'currGroupGame' : currGroupGame,
+        'words' : words
+     };
+    
+    response.render('index', pages)
+});
 
 
 

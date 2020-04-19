@@ -8,37 +8,46 @@
 						<!-- Main Content -->
 						<section style="background-color: green;">
 							<header style="color: white;">
-								<h2 style="color: white;">Lets play - 'Cows and Bulls' game</h2>
-								<h3 style="color: white;">We can play as a group</h3>
+								<div class="row">
+									<div class="6u">
+										<h2 style="color: white;">Lets play - 'Cows and Bulls' game</h2>
+										<h3 style="color: white;">We can play as a group</h3>
+									</div>
+									<div class="6u">
+										<a href="#" ><img src="images/cowsandbulls-fulltransparent.png" alt="" style="width:200px;height:100px;" ></a>
+									</div>
+								</div>
 							</header>
 							<div>
-								<div class="row">
+								{{!-- <div class="row">
 									<div>
 										<h4 style="font-style:italic;font-weight:bold; color: white;">Check current games if your group is already playing.. if not start new group</h4>
 									</div>
 									
-								</div>
-								<div class="row">
-									<div class="6u">
-										<p style="font-style:initial; color: white;">Enter your Name (Nickname or FirstName) :</p>
+								</div> --}}
+								<form action="/grp_cowsandbulls_game" method="POST">
+									<div class="row">
+										<div class="6u">
+											<p style="font-style:initial; color: white;">Enter your Name (Nickname or FirstName) :</p>
+										</div>
+										<div class="6u">
+											<input type="text" id="playerName" name="playerName" style="font-style:initial; width: 150px; height: 25px">
+										</div>
 									</div>
-									<div class="6u">
-										<input type="text" id="playerName" name="playerName" style="font-style:initial; width: 150px; height: 25px">
+									<div class="row">
+										<div class="6u">
+											<p style="font-style:initial; color: white;">Enter your Group Name :</p>
+										</div>
+										<div class="6u">
+											<input type="text" id="groupName" name="groupName" style="font-style:initial; width: 150px; height: 25px">
+										</div>
 									</div>
-								</div>
-								<div class="row">
-									<div class="6u">
-										<p style="font-style:initial; color: white;">Enter your Group Name :</p>
+									<div class="row" >
+										<div class="6u" style="text-align: center;" >
+											<input type="submit" value="Enter the Game">
+										</div>
 									</div>
-									<div class="6u">
-										<input type="text" id="groupName" name="groupName" style="font-style:initial; width: 150px; height: 25px">
-									</div>
-								</div>
-								<div class="row" >
-									<div class="6u" style="text-align: center;" >
-										<input type="submit" value="New Game">
-									</div>
-								</div>
+								</form>
 
 
 							</div>
