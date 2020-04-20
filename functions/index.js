@@ -1,6 +1,6 @@
 const functions = require('firebase-functions');
 const express = require('express');
-const engines = require('consolidate');
+//const engines = require('consolidate');
 
 var hbs = require('express-hbs');
 
@@ -133,13 +133,11 @@ app.post('/grp_cowsandbulls_game', (request, response) => {
 
     // let currGames = 
 
-    let currGroupGame = new GroupGame()
-    currGroupGame.groupName = groupName
+    let currGroupGame = new GroupGame(groupName, null, null)
 
-    let playerWord = new PlayerWord()
-    playerWord.playerName = playerName
+    let playerWord = new PlayerWord(playerName, null, null)
     
-    currGroupGame.playerWords.push(playerWord)
+    currGroupGame.addPlayerWord(playerWord)
 
     //Read this info from a valid place
     isNewGameAllowed = "false"

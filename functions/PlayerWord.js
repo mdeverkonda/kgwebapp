@@ -1,27 +1,32 @@
 module.exports = class PlayerWord {
 
-    _playerName
-    get playerName() {
-        return this._playerName
-    }
-    set playerName(value) {
-        this._playerName = value
-    }
-    
-    _playerCurrentWord
-    get playerCurrentWord() {
-        return this._playerCurrentWord
-    }
-    set playerCurrentWord(value) {
-        this._playerCurrentWord = value
+    constructor(playerName, playerCurrentWord, wordResult) {
+
+        this.playerName = playerName;
+        this.playerCurrentWord = playerCurrentWord;
+        this.wordResult = wordResult;    
     }
     
-    _wordResult
-    get wordResult() {
-        return this._wordResult
+    
+    getPlayerName() {
+        return this.playerName
     }
-    set wordResult(value) {
-        this._wordResult = value
+    setPlayerName(value) {
+        this.playerName = value
+    }
+    
+    getPlayerCurrentWord() {
+        return this.playerCurrentWord
+    }
+    setPlayerCurrentWord(value) {
+        this.playerCurrentWord = value
+    }
+    
+    getWordResult() {
+        return this.wordResult
+    }
+    setWordResult(value) {
+        this.wordResult = value
     }
 
 }

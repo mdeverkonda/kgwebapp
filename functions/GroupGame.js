@@ -3,29 +3,41 @@ let PlayerWord = require('./PlayerWord.js')
 module.exports = class GroupGame {
 
 
+    constructor(groupName, gameWord, playerWords) {
 
-    _groupName
-    get groupName() {
-        return this._groupName
-    }
-    set groupName(value) {
-        this._groupName = value
+        this.groupName = groupName;
+        this.gameWord = gameWord;
+        this.playerWords = playerWords;    
     }
 
-    _gameWord
-    get gameWord() {
-        return this._gameWord
+
+    getGroupName() {
+        return this.groupName
     }
-    set gameWord(value) {
-        this._gameWord = value
+    setGroupName(value) {
+        this.groupName = value
+    }
+
+    getGameWord() {
+        return this.gameWord
+    }
+    setGameWord(value) {
+        this.gameWord = value
     }
     
-    _playerWords = new Array(PlayerWord)
-    get playerWords() {
-        return this._playerWords
+    getPlayerWords() {
+        return this.playerWords
     }
-    set playerWords(value) {
-        this._playerWords = value
+    
+    // setPlayerWords(value) {
+    //     this._playerWords = value
+    // }
+
+    addPlayerWord(playerWord){
+        if(this.playerWords == null || this.playerWords == undefined) {
+            this.playerWords = new Array(PlayerWord)
+        }
+        this.playerWords.push(playerWord)
     }
 
 }
