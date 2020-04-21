@@ -1,15 +1,19 @@
 let PlayerWord = require('./PlayerWord.js')
 
-module.exports = class GroupGame {
+module.exports = class GameDetails {
 
 
-    constructor(groupName, gameWord, playerWords) {
+    constructor(groupName, gameWord) {
 
+        this.gameId = 'gm' + groupName + Date.now();
         this.groupName = groupName;
         this.gameWord = gameWord;
-        this.playerWords = playerWords;    
+        this.playerWords = new Array(PlayerWord);
     }
 
+    getGameId() {
+        return this.gameId
+    }
 
     getGroupName() {
         return this.groupName

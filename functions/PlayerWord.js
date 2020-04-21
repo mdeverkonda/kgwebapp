@@ -1,25 +1,30 @@
-module.exports = class PlayerWord {
+module.exports = class attemptedWord {
 
-    constructor(playerName, playerCurrentWord, wordResult) {
+    constructor(gameId, playerName, attemptedWord, wordResult) {
 
+        this.playerWordId = 'pw' + Date.now();
         this.playerName = playerName;
-        this.playerCurrentWord = playerCurrentWord;
+        this.gameId = gameId;
+        this.attemptedWord = attemptedWord;
         this.wordResult = wordResult;    
     }
     
-    
-    getPlayerName() {
-        return this.playerName
+    getPlayerWordId() {
+        return this.playerWordId
     }
-    setPlayerName(value) {
-        this.playerName = value
+
+    getGameId() {
+        return this.gameId
     }
-    
-    getPlayerCurrentWord() {
-        return this.playerCurrentWord
+    setGameId(value) {
+        this.gameId = value
     }
-    setPlayerCurrentWord(value) {
-        this.playerCurrentWord = value
+
+    getattemptedWord() {
+        return this.attemptedWord
+    }
+    setattemptedWord(value) {
+        this.attemptedWord = value
     }
     
     getWordResult() {
