@@ -1,4 +1,4 @@
-module.exports = class attemptedWord {
+module.exports = class PlayerWord {
 
     constructor(gameId, playerName, attemptedWord, wordResult) {
 
