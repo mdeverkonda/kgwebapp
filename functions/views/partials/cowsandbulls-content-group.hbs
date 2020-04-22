@@ -25,21 +25,35 @@
 									</div>
 									
 								</div> --}}
-								<form action="/grp_cowsandbulls_game" method="POST">
+								<form action="/cowsandbulls" method="POST">
 									<div class="row">
 										<div class="6u">
 											<p style="font-style:initial; color: white;">Enter your Name (Nickname or FirstName) :</p>
 										</div>
 										<div class="6u">
-											<input type="text" id="playerName" name="playerName" style="font-style:initial; width: 150px; height: 25px">
+											<input type="text" id="playerName" name="playerName" style="width: 150px; height: 25px" />
 										</div>
 									</div>
 									<div class="row">
 										<div class="6u">
 											<p style="font-style:initial; color: white;">Enter your Group Name :</p>
 										</div>
-										<div class="6u">
+										{{!-- <div class="6u">
 											<input type="text" id="groupName" name="groupName" style="font-style:initial; width: 150px; height: 25px">
+										</div> --}}
+
+										<div class="6u">
+
+											<div class="select-editable">
+											<select onchange="this.nextElementSibling.value=this.value">
+												<option value=""></option>
+												{{#each currentGames}}
+													<option {{groupName}} value="{{groupName}}">{{groupName}}</option>
+												{{/each}}
+											</select>
+											<input type="text" name="groupName" value="" style="font-style:initial; width: 150px; height: 25px"/>
+											</div>
+
 										</div>
 									</div>
 									<div class="row" >
@@ -58,22 +72,20 @@
 					<div class="3u">
 
 						<!-- Sidebar -->
-						<section style="background-color: #353D40; color: white" >
+						{{!-- <section style="background-color: #353D40; color: white" >
 							<header >
 								<h2 style="color: white">Current Games in Progress</h2>
 							</header>
-							<p style="font-style:initial;font-size: small;">
-								Here we go..</br>
-							</p>
 							<ul>
-    							{{#each groups}}
-    							<li><a href="/cowsandbulls_game">{{groupName}}</a></li>
+    							{{#each currentGames}}
+    							<li><a href="/cowsandbulls_game?groupName={{groupName}}" style="color: chartreuse;">{{groupName}}</a></li>
     							{{/each}}
 							</ul>
 
-						</section>
+						</section> --}}
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+

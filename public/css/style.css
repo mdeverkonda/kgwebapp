@@ -17,7 +17,7 @@
 		background: #353D40 url('images/bg03.jpg');
 	}
 
-	body, input, textarea, select
+	body, input, textarea
 	{
 		color: #474f51;
 		font-size: 13.5pt;
@@ -244,3 +244,9 @@
 		background-image: -o-linear-gradient(top, #ce1a00, #ed391b);
 		background-image: linear-gradient(top, #ce1a00, #ed391b);
 	}
+
+
+	.select-editable { position:relative; background-color:white; border:solid grey 1px;  width:120px; height:18px; }
+.select-editable select { position:absolute; top:0px; left:0px; font-size:14px; border:none; width:120px; margin:0; }
+.select-editable input { position:absolute; top:0px; left:0px; width:100px; padding:1px; font-size:12px; border:none; }
+.select-editable select:focus, .select-editable input:focus { outline:none; }

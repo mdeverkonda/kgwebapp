@@ -32,6 +32,11 @@ hbs.registerHelper('if_eq', function(a, b, opts) {
     }
 });
 
+hbs.registerHelper('option', function(value) {
+    var selected = value.toLowerCase() === (this.toString()).toLowerCase() ? 'selected="selected"' : '';
+    return '<option value="' + this + '" ' + selected + '>' + this + '</option>';
+});
+
 //Load Home Page
 app.get('/', (request, response) => {
     response.set('Cache-Control', 'public, max-age=300, s-maxage=600')
@@ -50,10 +55,13 @@ app.get('/cowsandbulls', (request, response) => {
 
     currentGames = getCurrentGames()
 
-    console.log("$$$$$$$ Current Games List : $$$$$$$$$$$")
-    for (groupName in currentGames) {
-        console.log("GroupId from mock :" , groupName)
-    }
+    // console.log("$$$$$$$ Current Games List : $$$$$$$$$$$")
+    // console.log("Current Games length : ", currentGames.length)
+    // console.log(currentGames)
+
+    // for (i=0; i<currentGames.length; i++) {
+    //     console.log("GroupId from mock :" , currentGames[i].groupName)
+    // }
 
 
     var pages = {
@@ -70,10 +78,14 @@ app.get('/cowsandbulls', (request, response) => {
 //Can be used from game page as well
 //search GameDetails with grpName with isGameInProgress=true
 //if exists.. return that game details and route to gamePage
-app.post('/cnb/games', (request, response) => {
+app.post('/cowsandbulls', (request, response) => {
 
     playerName = request.body.playerName
     groupName = request.body.groupName
+
+    // console.log("playerName: ", playerName)
+    // console.log("groupName: ", groupName)
+
 
     //First search in GameDetails if a game exists for current Group
     gameDetails = searchGameByGroupName(groupName)
@@ -97,8 +109,8 @@ app.post('/cnb/games', (request, response) => {
 
     var pages = {
         'name'   : 'cowsandbulls_game',
-        'newGameAllowed' : isNewGameAllowed,
-        'gameInProgress' : isGameInProgress,
+        'newGameAllowed' : newGameAllowed,
+        'gameInProgress' : gameInProgrss,
         'gameDetails' : gameDetails,
         'words' : playerWords,
         'grpHistory' : grpHistory,
@@ -111,8 +123,12 @@ app.post('/cnb/games', (request, response) => {
 //search GameDetails with gameId 
 //return the game details and route to gamePage
 //Not Sure if this will ever be used
-app.get('/cnb/games/:id', (request, response) => {
-    response.set('Cache-Control', 'public, max-age=300, s-maxage=600')
+app.get('/cowsandbulls_game', (request, response) => {
+
+    groupName = request.query.groupName
+
+    console.log("GroupName in the req params : ", groupName)
+
 
     isNewGameAllowed = "false"
     isGameInProgress = "true"
@@ -205,13 +221,15 @@ function searchGameByGroupName(groupName) {
 
     var gameDetailsList = buildMockGameDetailsList()
 
-    for (gameDetails in gameDetailsList) {
+    for(i=0; i< gameDetailsList.length; i++) {
+        console.log("gameId from caller: ", gameDetailsList[i].gameId)
+        console.log("groupName from caller: ", gameDetailsList[i].groupName)
 
-        if (gameDetails.getGroupName() == groupName) {
-            return gameDetails
+        if (gameDetailsList[i].groupName == groupName) {
+            return gameDetailsList[i]
         }
-
     }
+
 
 }
 
@@ -291,13 +309,13 @@ function getCurrentGames() {
 
     console.log("game Details List : ", gameDetailsList)
     
-    groupIdsList = new Array(String)
+    groupIdsList = new Array(gameDetailsList.length)
     //gameDetails = new GameDetails()
 
-    for(gameDetails in gameDetailsList) {
-        console.log("gameId from caller: ", gameDetails.gameId)
-        console.log("groupName from caller: ", gameDetails.groupName)
-        groupIdsList.push(gameDetails.groupName)
+    for(i=0; i< gameDetailsList.length; i++) {
+        console.log("gameId from caller: ", gameDetailsList[i].gameId)
+        console.log("groupName from caller: ", gameDetailsList[i].groupName)
+        groupIdsList[i] = ({'groupName': gameDetailsList[i].groupName})
     }
 
     return groupIdsList
@@ -312,13 +330,16 @@ function searchGameByGameId(gameId) {
 
     gameDetailsList = buildMockGameDetailsList()
 
-    for(gameDetails in gameDetailsList) {
+    for(i=0; i< gameDetailsList.length; i++) {
+        console.log("gameId from caller: ", gameDetailsList[i].gameId)
+        console.log("groupName from caller: ", gameDetailsList[i].groupName)
 
-        if(gameDetails.getGameId() == gameId) {
-            return gameDetails
+        if (gameDetailsList[i].gameId == gameId) {
+            return gameDetailsList[i]
         }
-
     }
+
+
 
 
 }
