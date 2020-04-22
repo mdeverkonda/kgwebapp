@@ -45,10 +45,16 @@ app.get('/', (request, response) => {
 
 //Get all current games
 //This will be called from group home
-app.get('/cnb/grphome', (request, response) => {
-    response.set('Cache-Control', 'public, max-age=300, s-maxage=600')
+app.get('/cowsandbulls', (request, response) => {
+    //response.set('Cache-Control', 'public, max-age=300, s-maxage=600')
 
     currentGames = getCurrentGames()
+
+    console.log("$$$$$$$ Current Games List : $$$$$$$$$$$")
+    for (groupName in currentGames) {
+        console.log("GroupId from mock :" , groupName)
+    }
+
 
     var pages = {
         'name'   : 'cowsandbulls',
@@ -223,12 +229,14 @@ function buildMockGameDetailsList() {
     gameDetails1.addPlayerWord(playerWord13)
     gameDetails1.addPlayerWord(playerWord14)
 
+    //console.log(gameDetails1.getGameId())
+
     //    constructor(groupName, gameWord, gameInProgress) {
     var gameDetails2 = new GameDetails("MadhavCousins", "word")
-    var playerWord21 = new PlayerWord(gameDetails1.getGameId(), "Madhav", "sump", "1C, 2B")
-    var playerWord22 = new PlayerWord(gameDetails1.getGameId(), "Sirisha", "tour", "2C, 2B")
-    var playerWord23 = new PlayerWord(gameDetails1.getGameId(), "Dinesh", "ride", "0C, 2B")
-    var playerWord24 = new PlayerWord(gameDetails1.getGameId(), "Sirisha", "gate", "0C, 0B")
+    var playerWord21 = new PlayerWord(gameDetails2.getGameId(), "Madhav", "sump", "1C, 2B")
+    var playerWord22 = new PlayerWord(gameDetails2.getGameId(), "Sirisha", "tour", "2C, 2B")
+    var playerWord23 = new PlayerWord(gameDetails2.getGameId(), "Dinesh", "ride", "0C, 2B")
+    var playerWord24 = new PlayerWord(gameDetails2.getGameId(), "Sirisha", "gate", "0C, 0B")
 
     gameDetails2.addPlayerWord(playerWord21)
     gameDetails2.addPlayerWord(playerWord22)
@@ -236,9 +244,7 @@ function buildMockGameDetailsList() {
     gameDetails2.addPlayerWord(playerWord24)
     
 
-    var gameDetailsList = new Array(GameDetails)
-    gameDetailsList.push(gameDetails1)
-    gameDetailsList.push(gameDetails2)
+    var gameDetailsList = [gameDetails1, gameDetails2]
 
     return gameDetailsList
             
@@ -279,11 +285,18 @@ function getGroupHistory(groupName) {
 
 function getCurrentGames() {
 
+    console.log("$$$$$$$ Current Games $$$$$$$$$$$")
+
     gameDetailsList = buildMockGameDetailsList()
 
-    var groupIdsList = new Array(String)
+    console.log("game Details List : ", gameDetailsList)
+    
+    groupIdsList = new Array(String)
+    //gameDetails = new GameDetails()
 
     for(gameDetails in gameDetailsList) {
+        console.log("gameId from caller: ", gameDetails.gameId)
+        console.log("groupName from caller: ", gameDetails.groupName)
         groupIdsList.push(gameDetails.groupName)
     }
 
